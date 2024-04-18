@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-Tables</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom utilities css -->
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- custom main css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 15%;
+    }
+
+    .album {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 2px solid #ff8c00;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .card-content p {
+        margin: 10px 0;
+        color: #666;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .modal-content img {
+        width: 100%;
+        height: auto;
+    }
+
+    .close {
+        color: #fff;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #ff8c00;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .price {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+
+
+    .container {
+        max-width: 100%;
+        /* Adjusted to make the container occupy full width */
+        margin: 3%;
+        margin-top: 100%;
+        padding: 70px;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        /* Adjusted to make the grid responsive */
+        grid-gap: 40px;
+    }
+
+    .product {
+        border: 1px solid #ccc;
+        padding: 30px;
+        text-align: center;
+        background-color: #f0f8ff;
+        /* Light Blue */
+        transition: transform 0.3s ease-in-out;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product.big {
+        padding: 50px;
+    }
+
+    .product:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .product h2 {
+        margin-top: 10px;
+        color: #333;
+    }
+
+    .product p {
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    /* Optional: Style for responsiveness */
+    @media (max-width: 600px) {
+        .product-list {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            /* Adjusted for smaller screens */
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        /* Default button color */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        /* Button color on hover */
+    }
+</style>
+</head>
+
+<body>
+    <div class="bg-light-brown" class="product-list">
+        <div class="container">
+            <h1>Dining Tables:</h1>
+            <div class="album">
+                <div class="card">
+                    <img src="product-dinning.html/table-img1.jpg" alt="Product 1" height="300px">
+                    <div class="card-content">
+                        <h3>Dining Table</h3>
+                        <p>Intimate and inclusive design fostering conversation, perfect for smaller spaces and social
+                            gatherings.</p>
+                        <span class="price">Rs:35,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img2.jpg" alt="Product 2" height="300px">
+                    <div class="card-content">
+                        <h3>Rectangular Dining Table</h3>
+                        <p> Classic and versatile, ideal for accommodating larger gatherings and serving as a focal
+                            point in dining rooms.
+                        </p>
+                        <span class="price">Rs:30,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img3.jpg" alt="Product 3">
+                    <div class="card-content">
+                        <h3>Extendable Dining Table</h3>
+                        <p>Practical solution for flexible seating arrangements, offering versatility for both everyday
+                            use and entertaining guests.</p>
+                        <span class="price">Rs:20,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img4.jpg" alt="Product 4">
+                    <div class="card-content">
+                        <h3>Counter-Height Dining Table</h3>
+                        <p>Trendy and casual design, providing a relaxed atmosphere and comfortable seating for informal
+                            dining experiences.</p>
+                        <span class="price">Rs:35,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img5.jpg" alt="Product 5">
+                    <div class="card-content">
+                        <h3>Drop-leaf Dining Table</h3>
+                        <p> Space-saving and adaptable choice, featuring hinged leaves that can be raised or lowered to
+                            accommodate varying seating needs.</p>
+                        <span class="price">Rs:30,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img6.jpg" alt="Product 6">
+                    <div class="card-content">
+                        <h3>Farmhouse Dining Table</h3>
+                        <p> Rustic and charming style, evoking a sense of warmth and tradition with its sturdy
+                            construction and distressed finishes.
+                        </p>
+                        <span class="price">Rs:25,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img7.jpg" alt="Product 7">
+                    <div class="card-content">
+                        <h3>Square Dining Table</h3>
+                        <p>Contemporary and space-efficient option, conducive to cozy dining setups and modern
+                            aesthetics.</p>
+                        <span class="price">Rs:18,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img8.jpg" alt="Product 8">
+                    <div class="card-content">
+                        <h3>Glass Dining Table</h3>
+                        <p> Modern and sleek aesthetic, creating an illusion of space and light while showcasing
+                            intricate base designs or architectural elements.</p>
+                        <span class="price">Rs:30,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product-dinning.html/table-img9.jpg" alt="Product 9">
+                    <div class="card-content">
+                        <h3>Trestle Dining Table</h3>
+                        <p>Timeless and sturdy construction, characterized by a support structure with two or more legs
+                            connected by a horizontal beam, offering both stability and style.
+                        </p>
+                        <span class="price">Rs:37,000</span><br>
+                        <button onclick="confirmOrder()">Buy Now</button>
+                    </div>
+                </div>
+                <!-- Repeat the card structure for other products -->
+            </div>
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modalImg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var images = document.querySelectorAll('.card img');
+        var modalImg = document.getElementById("modalImg");
+        images.forEach(function (img) {
+            img.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        function confirmOrder() {
+            setTimeout(function () {
+                alert("Order confirmed!");
+            }, 3000); // 4000 milliseconds = 4 seconds
+        }
+
+    </script>
+</body>
+
+</html>

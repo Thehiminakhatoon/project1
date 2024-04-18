@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product-Beds</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- custom utilities css -->
+  <link rel="stylesheet" href="css/utilities.css">
+  <!-- custom main css -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 15%;
+  }
+
+  .album {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #ff8c00;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .card-content p {
+    margin: 10px 0;
+    color: #666;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .modal-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  .close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #ff8c00;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .price {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+
+  .container {
+    max-width: 100%;
+    /* Adjusted to make the container occupy full width */
+    margin: 5%;
+    margin-top: 70%;
+    padding: 60px;
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Adjusted to make the grid responsive */
+    grid-gap: 40px;
+  }
+
+  .product {
+    border: 1px solid #ccc;
+    padding: 30px;
+    text-align: center;
+    background-color: #f0f8ff;
+    /* Light Blue */
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .product.big {
+    padding: 50px;
+  }
+
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .product h2 {
+    margin-top: 10px;
+    color: #333;
+  }
+
+  .product p {
+    margin-bottom: 10px;
+    color: #666;
+  }
+
+  /* Optional: Style for responsiveness */
+  @media (max-width: 600px) {
+    .product-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      /* Adjusted for smaller screens */
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Default button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+    /* Button color on hover */
+  }
+</style>
+</head>
+
+<body>
+  <div class="bg-light-brown" class="product-list">
+    <div class="container">
+      <h1>Beds:</h1>
+      <div class="album">
+        <div class="card">
+          <img src="product-beds-img/bed-img8.jpg" alt="Product 1" height="300px">
+          <div class="card-content">
+            <h3>Modern Bed</h3>
+            <p>Luxurious comfort meets ergonomic design in our premium bed collection.</p>
+            <span class="price">Rs:50,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img3.jpg" alt="Product 2" height="300px">
+          <div class="card-content">
+            <h3>French Bed</h3>
+            <p>Timeless elegance meets modern simplicity in this sturdy wooden frame.
+            </p>
+            <span class="price">Rs:45,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img10.jpg" alt="Product 3">
+          <div class="card-content">
+            <h3>Distressed Bed</h3>
+            <p>Embrace country charm with this curved headboard and footboard design.</p>
+            <span class="price">Rs:40,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img14.jpg" alt="Product 4">
+          <div class="card-content">
+            <h3>Cottage Bed</h3>
+            <p>Experience serene simplicity and low-profile luxury with this traditional Asian-inspired frame.</p>
+            <span class="price">Rs:35,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img11.jpg" alt="Product 5">
+          <div class="card-content">
+            <h3>Ornate Bed</h3>
+            <p>Combine style and functionality with integrated drawers or shelves for efficient space utilization.</p>
+            <span class="price">Rs:30,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img12.jpg" alt="Product 6">
+          <div class="card-content">
+            <h3>Sleigh Bed</h3>
+            <p> Elevate your bedroom decor with regal flair and a touch of romance under a majestic canopy.</p>
+            <span class="price">Rs:25,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img13.jpg" alt="Product 7">
+          <div class="card-content">
+            <h3>Murphy Bed</h3>
+            <p>Channel retro vibes and sleek lines for a chic addition to any bedroom aesthetic.</p>
+            <span class="price">Rs:20,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img1.jpg" alt="Product 8">
+          <div class="card-content">
+            <h3>Canopy Bed</h3>
+            <p> Add a touch of grandeur with tall posts and crossbeams, evoking timeless sophistication.</p>
+            <span class="price">Rs:30,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="product-beds-img/bed-img9.jpg" alt="Product 9">
+          <div class="card-content">
+            <h3>Storage Bed</h3>
+            <p> Enjoy a minimalist design with clean lines and a slatted base for optimal mattress support.</p>
+            <span class="price">Rs:15,000</span><br>
+            <button onclick="confirmOrder()">Buy Now</button>
+          </div>
+        </div>
+        <!-- Repeat the card structure for other products -->
+      </div>
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var images = document.querySelectorAll('.card img');
+    var modalImg = document.getElementById("modalImg");
+    images.forEach(function (img) {
+      img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      }
+    });
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    function confirmOrder() {
+    setTimeout(function() {
+        alert("Order confirmed!");
+    }, 3000); // 4000 milliseconds = 4 seconds
+}
+
+  </script>
+</body>
+
+</html>

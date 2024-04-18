@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Site</title>
+    <!-- normalize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom utilities css -->
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- custom main css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+    
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input-group textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      width: 10%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+</style>
+
+<body>
+
+
+    <div class="holder">
+        <!-- navbar -->
+        <nav class="navbar bg-brown flex">
+            <div class="container flex">
+                <!--logo-->
+                <img src="logo2.jpg" alt="logo" height="77px" width="5px" style="margin: 10px;">
+                <div class="toggler-and-category bg-brown text-white flex">
+                    <button type="button" class="btn navbar-show-btn text-white">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+
+                    <div class="category-list">
+                        <span>Category</span>
+                        <button type="button" class="btn category-toggler-btn text-white">
+                            <i class="fas fa-circle-arrow-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- side navbar -->
+                    <ul id="side-navbar" class="bg-white text-uppercase">
+                        <button type="button" class="btn navbar-hide-btn text-dark">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">featured</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">shop</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">contact</a></li>
+                    </ul>
+                    <!-- end of side navbar -->
+
+                    <ul id="category-list-items" class="bg-white">
+                        <li><a href="Bed.html">Beds</a></li>
+                        <li><a href="#">NIghtstands</a></li>
+                        <li><a href="#">Dressers</a></li>
+                        <li><a href="#">Bookcase</a></li>
+                        <li><a href="#">Coffee Tables</a></li>
+                        <li><a href="#">Mattresses</a></li>
+                        <li><a href="#">Sofas</a></li>
+                        <li><a href="#">Chairs</a></li>
+                        <li><a href="#">Hall Trees</a></li>
+                        <li><a href="#">Furniture Stores</a></li>
+                    </ul>
+                </div>
+
+                <!-- main navigation list -->
+                <div class="navbar-collapse flex">
+                    <!-- nav list -->
+                    <ul class="navbar-nav text-uppercase">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active-link">
+                                <span class="nav-link-text">Home</span>
+                                <span class="dropdown-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-link-text">About</span>
+                                <span class="dropdown-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-link-text">shop</span>
+                                <span class="dropdown-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-link-text">blog</span>
+                                <span class="dropdown-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-link-text">about</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span class="nav-link-text">contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- end of nav list -->
+
+                    <!-- account icons -->
+                    <div class="account-info">
+                        <a href="login.html" class="btn text-white" target="_blank">
+                            <i class="fas fa-person"></i>
+                        </a>
+                        <a href="#" class="btn text-white">
+                            <i class="fas fa-shopping-basket"></i>
+                        </a>
+                    </div>
+                    <!-- end of account icons -->
+                </div>
+                <!-- end of main navigation list -->
+            </div>
+        </nav>
+        <!-- end of navbar -->
+
+        <!-- header -->
+        <header class="header bg-light-brown flex" id="home">
+            <div class="container">
+                <div class="header-content grid text-center">
+                    <div class="header-left">
+                        <h1>Best Design of Furniture Collection</h1>
+                        <p class="text">Improve the atmosphere through interior design that is driven by purposes to
+                            bring value into your environment</p>
+                        <a href="#new-products" class="btn-header text-white bg-brown">shop now</a>
+                    </div>
+
+                    <div class="header-right">
+                        <img src="images/catalog_img.png">
+                    </div>
+                    <img src="images/header-shape.png" class="header-shape">
+                </div>
+            </div>
+        </header>
+        <!-- end of header -->
+
+        <!-- main content -->
+        <main>
+
+            <!--corousel-->
+
+
+            <!-- top new products section -->
+            <section id="new-products" class="new-products py bg-light-grey-color-shade">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <h2>top new products</h2>
+                        <p class="lead">Discover our latest arrivals, featuring innovative designs and superior
+                            craftsmanship, perfect for modern living spaces. Elevate your home with our top new products
+                            curated to inspire and impress.</p>
+                        <div class="line"></div>
+
+                    </div>
+
+                    <div class="new-products-content grid">
+                        <div class="new-product-item">
+                            <div class="image">
+                                <img src="images/new_product_img_1.png" alt="">
+                                <span class="badge bg-brown text-white text-center text-uppercase">sale</span>
+                            </div>
+                            <div class="info">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+
+                                    <span>(10 Reviews)</span>
+                                </div>
+                                <p class="name">Cusion Chair</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:8,000</span>
+                                    <span class="new text-brown">Rs:5000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="new-product-item">
+                            <div class="image">
+                                <img src="images/new_product_img_2.png" alt="">
+                                <span class="badge bg-brown text-white text-center text-uppercase">sale</span>
+                            </div>
+                            <div class="info">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <span>(10 Reviews)</span>
+                                </div>
+                                <p class="name">Decor For Drawing Room</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:15,000</span>
+                                    <span class="new text-brown">Rs:7,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="new-product-item">
+                            <div class="image">
+                                <img src="images/new_product_img_3.png" alt="">
+                                <span class="badge bg-brown text-white text-center text-uppercase">sale</span>
+                            </div>
+                            <div class="info">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+
+                                    <span>(10 Reviews)</span>
+                                </div>
+                                <p class="name">Decor For Drawing Room</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:18,000</span>
+                                    <span class="new text-brown">Rs:10,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="new-product-item">
+                            <div class="image">
+                                <img src="images/new_product_img_4.png" alt="">
+                                <span class="badge bg-brown text-white text-center text-uppercase">sale</span>
+                            </div>
+                            <div class="info">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <span>(10 Reviews)</span>
+                                </div>
+                                <p class="name">Home-Decoration</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:1,500</span>
+                                    <span class="new text-brown">Rs:1000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end of top new products section -->
+
+            <!-- category section -->
+            <div class="section-title text-center">
+                <section class="category py bg-light-brown" id="category">
+                    <h2>Category</h2>
+                    <p class="lead">Explore our wide range of categories for every room in your home.</p>
+                    <div class="line"></div>
+                    <div class="container">
+                        <div class="category-content grid">
+                            <div class="category-item">
+                                <img src="images/category_img_1.png">
+                                <div class="category-badge bg-white text-dark flex">Sofa Set</div>
+                            </div>
+                            <div class="category-item">
+                                <img src="images/category_img_2.png">
+                                <div class="category-badge bg-white text-dark flex">Dressers</div>
+                            </div>
+                            <div class="category-item">
+                                <img src="images/category_img_3.png">
+                                <div class="category-badge bg-white text-dark flex">Chairs</div>
+                            </div>
+                            <div class="category-item">
+                                <img src="images/category_img_4.png">
+                                <div class="category-badge bg-white text-dark flex">Dining Tables</div>
+                            </div>
+                            <div class="category-item">
+                                <img src="images/category_img_5.png">
+                                <div class="category-badge bg-white text-dark flex">Loft Lamp</div>
+                            </div>
+                            <div class="category-item">
+                                <img src="images/category_img_6.png">
+                                <div class="category-badge bg-white text-dark flex">Art Station</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <!-- end of category section -->
+
+            <!-- featured deals section -->
+            <section class="featured-deals bg-light-grey-color-shade py" id="featured-deals">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <h2>featured deals</h2>
+                        <p class="lead">Explore our feature deals for unbeatable savings on exquisite furniture pieces.
+                            From chic sofas to stylish dining sets, discover the perfect additions to elevate your home.
+                            Hurry, these limited-time offers won't last long!</p>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="featured-deals-content grid">
+                        <div class="featured-deals-item">
+                            <div class="image">
+                                <img src="images/featured_deals_img_1.png">
+                            </div>
+                            <div class="info bg-white">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                </div>
+                                <p class="name">Sofa</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs 35,000</span>
+                                    <span class="new text-brown">Rs 15,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="featured-deals-item">
+                            <div class="image">
+                                <img src="images/featured_deals_img_2.png">
+                            </div>
+                            <div class="info bg-white">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                </div>
+                                <p class="name">Chaise Couch</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:15,000</span>
+                                    <span class="new text-brown">Rs:8,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="featured-deals-item">
+                            <div class="image">
+                                <img src="images/featured_deals_img_3.png">
+                            </div>
+                            <div class="info bg-white">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+
+                                </div>
+                                <p class="name">Wardrobe</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:20,000</span>
+                                    <span class="new text-brown">Rs:15,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="featured-deals-item">
+                            <div class="image">
+                                <img src="images/featured_deals_img_4.png">
+                            </div>
+                            <div class="info bg-white">
+                                <div class="ratings text-grey">
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-brown"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                    <i class="fas fa-star text-light-grey"></i>
+                                </div>
+                                <p class="name">Wooden Stool For Drawing Room</p>
+                                <div class="price">
+                                    <span class="old text-grey">Rs:5,000</span>
+                                    <span class="new text-brown">Rs:2,000</span>
+                                    <span><Button class="button">Buy Now</Button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end of featured deals section -->
+
+            <!-- catalog section -->
+            <section class="catalog bg-brown" id="catalog">
+                <div class="catalog-content grid text-center">
+                    <div class="catalog-left"></div>
+                    <div class="catalog-right text-white flex py">
+                        <div class="section-title">
+                            <h2>"Transform Your Space: Discover Your Perfect Home Décor with <b>SS-HomeDécors</b>"</h2>
+                        </div>
+                        <p class="text">Elevate your home with our carefully curated selection of furniture and décor,
+                            designed to inspire and transform any space. Discover your style and make your house a true
+                            reflection of you with us</p>
+                        <p class="text">Find the perfect pieces to make your house feel like home with our diverse range
+                            of stylish furniture and accessories. Let us help you create a space that reflects your
+                            personality and brings your vision to life</p>
+                    </div>
+                </div>
+            </section>
+            <!-- end of catalog section -->
+
+            <!-- latest news section -->
+            <section class="latest-news bg-light-grey-color-shade py" id="latest-news">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <h2>Our Services</h2>
+                        <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="latest-news-content grid">
+                        <article class="latest-news-item bg-white">
+                            <div class="top">
+                                <img src="images/latest_news_img_1.png">
+                                <div class="author">
+                                    <img src="images/author-1.jpg">
+                                </div>
+                            </div>
+                            <div class="body">
+                                <span class="date">Posted October 8, 2021</span>
+                                <h3 class="title text-uppercase">cheap budget hotel rooms</h3>
+                                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, veritatis
+                                    <span>...</span>
+                                </p>
+                            </div>
+                            <div class="bottom" k>
+                                <a href="#" class="text-uppercase">read more</a>
+                            </div>
+                        </article>
+
+                        <article class="latest-news-item bg-white">
+                            <div class="top">
+                                <img src="images/latest_news_img_2.png">
+                                <div class="author">
+                                    <img src="images/author-2.jpg">
+                                </div>
+                            </div>
+                            <div class="body">
+                                <span class="date">Posted October 8, 2021</span>
+                                <h3 class="title text-uppercase">cheap budget hotel rooms</h3>
+                                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, veritatis
+                                    <span>...</span>
+                                </p>
+                            </div>
+                            <div class="bottom" k>
+                                <a href="#" class="text-uppercase">read more</a>
+                            </div>
+                        </article>
+
+                        <article class="latest-news-item bg-white">
+                            <div class="top">
+                                <img src="images/latest_news_img_3.png">
+                                <div class="author">
+                                    <img src="images/author-3.jpg">
+                                </div>
+                            </div>
+                            <div class="body">
+                                <span class="date">Posted October 8, 2021</span>
+                                <h3 class="title text-uppercase">cheap budget hotel rooms</h3>
+                                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, veritatis
+                                    <span>...</span>
+                                </p>
+                            </div>
+                            <div class="bottom" k>
+                                <a href="#" class="text-uppercase">read more</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- end of latest news section -->
+
+            <!-- feedback section -->
+            <section class="feedback py bg-light-grey-color-shade" id="feedback">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <h2>Feedback</h2>
+                        <p class="lead">Our satisfied customer reviews</p>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="feedback-inner">
+                        <div class="feedback-container grid">
+                            <div class="feedback-item bg-white text-center" data-id="1">
+                                <img src="images/quote-icon-dark.png" class="quote-icon">
+                                <p class="text text-grey">Amazing attention to detail: The furniture is made with so
+                                    much care and precision, you can tell it's crafted with love.</p>
+                                <div class="client">
+                                    <img src="images/client-1.jpg">
+                                </div>
+                            </div>
+
+                            <div class="feedback-item bg-white text-center" data-id="2" id="feedback-display">
+                                <img src="images/quote-icon.png" class="quote-icon">
+                                <p class="text text-grey">Classic yet modern: The designs are both timeless and stylish,
+                                    making them perfect for any home, no matter the décor.</p>
+                                <div class="client">
+                                    <img src="images/client-2.jpg">
+                                </div>
+                            </div>
+
+                            <div class="feedback-item bg-white text-center" data-id="3">
+                                <img src="images/quote-icon-dark.png" class="quote-icon">
+                                <p class="text text-grey">Built to last: Even after daily use, the furniture still looks
+                                    brand new. It's clear they're made to withstand the test of time.</p>
+                                <div class="client">
+                                    <img src="images/client-3.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-btns flex">
+                        <button class="feedback-btn feedback-active-btn"></button>
+                        <button class="feedback-btn"></button>
+                        <button class="feedback-btn"></button>
+                    </div>
+                </div>
+            </section>
+            <!-- end of feedback section -->
+
+            <!--Form-->
+            <div class="container">
+                <form action="#" method="post">
+                  <h2>Reviews</h2>
+                  <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                  </div>
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
+            <!--end of form-->
+           
+        </main>
+        <!-- end of main content -->
+
+        <!-- footer -->
+        <footer class="footer bg-light-brown" id="footer">
+            <div class="container">
+                <div class="footer-content py grid text-center">
+                    <div class="footer-item">
+                        <h3>SS-HomeDécors.com</h3>
+                        <p class="text">Discover timeless elegance at our furniture website, where quality meets
+                            affordability. From classic designs to modern pieces, find your perfect match for every
+                            room. Elevate your space with our curated selection and exceptional customer service.</p>
+                        <ul class="social-links flex">
+                            <li>
+                                <a href="#" class="flex"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex"><i class="fab fa-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-item">
+                        <h3>Contact Us</h3>
+                        <p class="text">1203, Falke Street, Drive FL 5766, LA, USA</p>
+                        <p class="text">Phone: +474 (4657) 2000</p>
+                        <p class="text">Email: info@furnish.com</p>
+                    </div>
+
+                    <div class="footer-item">
+                        <h3>Recent Post</h3>
+                        <ul>
+                            <li class="text"><a href="#">Rooms decoration package</a></li>
+                            <li class="text"><a href="#">Dinning Materials</a></li>
+                            <li class="text"><a href="#">Event Furniture</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-item">
+                        <h3>Our Portfolio</h3>
+                        <ul>
+                            <li class="text"><a href="#latest-news">Our Services</a></li>
+                            <li class="text"><a href="#category">Gallery</a></li>
+                            <li class="text"><a href="#featured-deals">featured-deals</a></li>
+                            <li class="text"><a href="#feedback">Feedback</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-end bg-dark">
+                <div class="container grid">
+                    <p class="text text-white text-center">&copy; Copyright 2024. All Right Reserved. Designed and
+                        Developed by Tehmina..</p>
+                    <div class="flex payment">
+                        <img src="images/pay_1.png">
+                        <img src="images/pay_2.png">
+                        <img src="images/pay_3.png">
+                        <img src="images/pay_4.png">
+                        <img src="images/pay_5.png">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+    </div>
+
+
+
+
+
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
